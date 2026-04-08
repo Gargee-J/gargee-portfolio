@@ -1,1 +1,945 @@
+# 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gargee Jagtap — Content Writer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+--ink: #0f0d0a;
+--paper: #f5f0e8;
+--cream: #ede7d6;
+--accent: #b5451b;
+--accent-warm: #e8935a;
+--muted: #7a7265;
+--line: #d4ccbb;
+--card-bg: #faf7f2;
+}
+
+```
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ─── CURSOR ─── */
+body { cursor: none; }
+.cursor {
+  position: fixed;
+  width: 10px; height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease;
+  mix-blend-mode: multiply;
+}
+.cursor-ring {
+  position: fixed;
+  width: 36px; height: 36px;
+  border: 1.5px solid var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.35s ease, width 0.3s, height 0.3s;
+  mix-blend-mode: multiply;
+}
+a:hover ~ .cursor, button:hover ~ .cursor { transform: scale(2.5); }
+
+/* ─── NOISE TEXTURE ─── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='<http://www.w3.org/2000/svg>'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 5vw;
+  mix-blend-mode: multiply;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+.nav-links a {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--accent); }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 14vh 5vw 10vh;
+  position: relative;
+}
+.hero-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 0.8s forwards 0.3s;
+}
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  opacity: 0;
+  animation: fadeUp 0.9s forwards 0.5s;
+}
+.hero-name em {
+  font-style: italic;
+  color: var(--accent);
+}
+.hero-desc {
+  margin-top: 2.5rem;
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 400px;
+  line-height: 1.75;
+  opacity: 0;
+  animation: fadeUp 0.9s forwards 0.75s;
+}
+.hero-cta {
+  margin-top: 3rem;
+  display: flex;
+  gap: 1.2rem;
+  opacity: 0;
+  animation: fadeUp 0.9s forwards 0.95s;
+}
+.btn-primary {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.85rem 2rem;
+  background: var(--accent);
+  color: var(--paper);
+  text-decoration: none;
+  border: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-primary:hover { background: var(--ink); transform: translateY(-2px); }
+.btn-ghost {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.85rem 2rem;
+  background: transparent;
+  color: var(--ink);
+  text-decoration: none;
+  border: 1.5px solid var(--line);
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+}
+.btn-ghost:hover { border-color: var(--ink); transform: translateY(-2px); }
+
+.hero-right {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 10vh 5vw 10vh 0;
+  overflow: hidden;
+}
+.hero-visual {
+  position: relative;
+  width: 340px;
+  opacity: 0;
+  animation: fadeIn 1.2s forwards 0.8s;
+}
+.hero-card {
+  background: var(--cream);
+  border: 1.5px solid var(--line);
+  padding: 2.5rem;
+  position: relative;
+}
+.hero-card::before {
+  content: '"';
+  font-family: 'Playfair Display', serif;
+  font-size: 8rem;
+  line-height: 1;
+  color: var(--line);
+  position: absolute;
+  top: -1rem;
+  left: 1.5rem;
+}
+.hero-card-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--ink);
+  position: relative;
+  z-index: 1;
+}
+.hero-card-author {
+  margin-top: 1.5rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.hero-stats {
+  position: absolute;
+  right: -20px;
+  top: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.stat-pill {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.6rem 1.2rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.stat-pill span {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-style: italic;
+  color: var(--accent-warm);
+  line-height: 1;
+  margin-bottom: 0.1rem;
+}
+
+/* ─── MARQUEE ─── */
+.marquee-wrap {
+  border-top: 1.5px solid var(--line);
+  border-bottom: 1.5px solid var(--line);
+  overflow: hidden;
+  padding: 0.9rem 0;
+  background: var(--ink);
+}
+.marquee-track {
+  display: flex;
+  gap: 3rem;
+  animation: marquee 20s linear infinite;
+  white-space: nowrap;
+}
+.marquee-track span {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--cream);
+  padding-right: 3rem;
+}
+.marquee-track span.dot {
+  color: var(--accent);
+  font-style: normal;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ─── SECTIONS SHARED ─── */
+section {
+  position: relative;
+  z-index: 1;
+}
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+/* ─── ABOUT ─── */
+#about {
+  padding: 10vh 10vw;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 8vw;
+  align-items: start;
+}
+.about-body {
+  font-size: 1.05rem;
+  color: var(--muted);
+  line-height: 1.85;
+}
+.about-body p + p { margin-top: 1.2rem; }
+.about-accent {
+  color: var(--ink);
+  font-weight: 500;
+}
+.about-edu {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.edu-item {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-left: 2px solid var(--accent);
+  background: var(--card-bg);
+}
+.edu-degree {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.edu-school {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+/* ─── EXPERIENCE ─── */
+#experience {
+  padding: 10vh 10vw;
+  background: var(--cream);
+  border-top: 1.5px solid var(--line);
+}
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 4rem;
+}
+.exp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+.exp-card {
+  background: var(--paper);
+  padding: 2.5rem;
+  border: 1.5px solid var(--line);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.exp-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.exp-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+.exp-card:hover::after { transform: scaleX(1); }
+.exp-co {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.exp-role {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.exp-period {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  margin-bottom: 1.5rem;
+}
+.exp-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.exp-list li {
+  font-size: 0.9rem;
+  color: var(--muted);
+  padding-left: 1rem;
+  position: relative;
+}
+.exp-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.8rem;
+}
+
+/* ─── SKILLS ─── */
+#skills {
+  padding: 10vh 10vw;
+}
+.skills-grid {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+.skill-group {
+  padding: 2rem;
+  background: var(--card-bg);
+  border: 1.5px solid var(--line);
+}
+.skill-group-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.2rem;
+}
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.skill-tag {
+  font-size: 0.78rem;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  background: var(--paper);
+  transition: all 0.2s;
+}
+.skill-tag:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+/* ─── WORK / PUBLISHED ─── */
+#work {
+  padding: 10vh 10vw;
+  background: var(--ink);
+  color: var(--paper);
+  border-top: 1.5px solid var(--line);
+}
+#work .section-label { color: var(--accent-warm); }
+#work .section-title { color: var(--paper); }
+.work-grid {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.work-card {
+  padding: 2rem;
+  border: 1px solid #2a2620;
+  background: #1a1714;
+  transition: background 0.3s;
+  text-decoration: none;
+}
+.work-card:hover { background: #221f1b; }
+.work-card-num {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 3rem;
+  color: #2a2620;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+.work-card-type {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-warm);
+  margin-bottom: 0.5rem;
+}
+.work-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--paper);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+.work-card-desc {
+  font-size: 0.85rem;
+  color: #6b6459;
+  line-height: 1.65;
+}
+.work-card-arrow {
+  margin-top: 1.5rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-warm);
+}
+
+/* ─── CONTACT ─── */
+#contact {
+  padding: 12vh 10vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8vw;
+  align-items: center;
+  border-top: 1.5px solid var(--line);
+}
+.contact-big {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+}
+.contact-big em {
+  font-style: italic;
+  color: var(--accent);
+}
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.contact-link-row {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+.contact-link-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  min-width: 80px;
+}
+.contact-link-val {
+  font-size: 0.95rem;
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contact-link-val:hover { color: var(--accent); }
+
+/* ─── FOOTER ─── */
+footer {
+  padding: 2rem 10vw;
+  border-top: 1.5px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-copy {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+.footer-badge {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-right { display: none; }
+  .hero-left { padding: 20vh 7vw 8vh; }
+  #about { grid-template-columns: 1fr; gap: 3rem; }
+  .exp-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+  .work-grid { grid-template-columns: 1fr; }
+  #contact { grid-template-columns: 1fr; gap: 3rem; }
+  .nav-links { display: none; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; }
+}
+```
+
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav>
+<a href="#" class="nav-logo">Gargee Jagtap</a>
+<ul class="nav-links">
+<li><a href="#about">About</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#work">Work</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-left">
+<p class="hero-tag">Content Writer & Marketer</p>
+<h1 class="hero-name">Words<br/>that <em>work.</em></h1>
+<p class="hero-desc">B2B content strategist crafting SEO-driven blogs, case studies, and brand copy for tech & SaaS — where clarity meets conversion.</p>
+<div class="hero-cta">
+<a href="#work" class="btn-primary">View Published Work</a>
+<a href="#contact" class="btn-ghost">Get in Touch</a>
+</div>
+</div>
+<div class="hero-right">
+<div class="hero-visual">
+<div class="hero-card">
+<p class="hero-card-text">Great content doesn't just rank — it makes someone stop, read, and act. That's the standard I hold every piece to.</p>
+<p class="hero-card-author">— Gargee Jagtap</p>
+</div>
+<div class="hero-stats">
+<div class="stat-pill"><span>25+</span>SEO Pieces</div>
+<div class="stat-pill"><span>2yr</span>B2B SaaS</div>
+<div class="stat-pill"><span>8.5</span>MA CGPA</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+<div class="marquee-track">
+<span>SEO Writing</span><span class="dot">✦</span>
+<span>Long-Form Content</span><span class="dot">✦</span>
+<span>Case Studies</span><span class="dot">✦</span>
+<span>B2B SaaS</span><span class="dot">✦</span>
+<span>Website Copy</span><span class="dot">✦</span>
+<span>Social Strategy</span><span class="dot">✦</span>
+<span>GA4 Analytics</span><span class="dot">✦</span>
+<span>Lead Generation</span><span class="dot">✦</span>
+<span>Contentful CMS</span><span class="dot">✦</span>
+<span>Keyword Research</span><span class="dot">✦</span>
+<!-- duplicate for seamless loop -->
+<span>SEO Writing</span><span class="dot">✦</span>
+<span>Long-Form Content</span><span class="dot">✦</span>
+<span>Case Studies</span><span class="dot">✦</span>
+<span>B2B SaaS</span><span class="dot">✦</span>
+<span>Website Copy</span><span class="dot">✦</span>
+<span>Social Strategy</span><span class="dot">✦</span>
+<span>GA4 Analytics</span><span class="dot">✦</span>
+<span>Lead Generation</span><span class="dot">✦</span>
+<span>Contentful CMS</span><span class="dot">✦</span>
+<span>Keyword Research</span><span class="dot">✦</span>
+</div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="reveal">
+<p class="section-label">01 — About</p>
+<h2 class="section-title">The writer<br/>behind the work</h2>
+</div>
+<div class="reveal">
+<div class="about-body">
+<p>I'm a <span class="about-accent">SEO-focused B2B content writer</span> with a Master's in English and hands-on digital marketing experience across tech and SaaS. I write long-form, research-driven content — blogs, case studies, website copy, and product-led pieces — that build topical authority and align with search intent.</p>
+<p>I'm proficient with <span class="about-accent">GA4, WordPress, and Contentful CMS</span>, with additional experience in Meta Ads, Google Ads, social content strategy, and performance tracking. I simplify complex ideas into clear, user-focused narratives while collaborating with design, product, and marketing teams.</p>
+<p>Currently pursuing a <span class="about-accent">PhD in English Literature</span> at SNDT Women's University, researching caste, discourse, and resistance in Indian literature and film.</p>
+</div>
+<div class="about-edu">
+<div class="edu-item">
+<div>
+<div class="edu-degree">MH-SET Qualified — 2024</div>
+<div class="edu-school">State Eligibility Test</div>
+</div>
+</div>
+<div class="edu-item">
+<div>
+<div class="edu-degree">MA in English — 8.5 CGPA</div>
+<div class="edu-school">SPPU, Pune</div>
+</div>
+</div>
+<div class="edu-item">
+<div>
+<div class="edu-degree">BA in English — A+</div>
+<div class="edu-school">MES Abasaheb Garware College</div>
+</div>
+</div>
+<div class="edu-item">
+<div>
+<div class="edu-degree">Advanced Digital Marketing</div>
+<div class="edu-school">PIIDM, Pune</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+<div class="exp-header reveal">
+<div>
+<p class="section-label">02 — Experience</p>
+<h2 class="section-title">Where I've<br/>built my craft</h2>
+</div>
+</div>
+<div class="exp-grid">
+<div class="exp-card reveal">
+<p class="exp-co">Eumentis · eumentis.ai</p>
+<h3 class="exp-role">Content & Marketing Associate</h3>
+<p class="exp-period">May 2024 — Present · Full-Time</p>
+<ul class="exp-list">
+<li>End-to-end content lifecycle for 25+ SEO blogs, landing pages, and case studies</li>
+<li>Wrote website copy, LinkedIn posts, and YouTube scripts aligned with demand-generation goals</li>
+<li>Managed content publishing and structured page layouts via Contentful CMS</li>
+<li>Conducted keyword research and UX analysis to guide content strategy and ad targeting</li>
+<li>Used GA4 to track performance and recommend data-backed optimisations</li>
+<li>Designed blog and social visuals using Canva and AI tools</li>
+</ul>
+</div>
+<div class="exp-card reveal">
+<p class="exp-co">Continent Hop</p>
+<h3 class="exp-role">Freelance Content Writer</h3>
+<p class="exp-period">May 2023 — May 2024 · Freelance</p>
+<ul class="exp-list">
+<li>Wrote engaging travel blogs for international destinations, tailored to a global audience</li>
+<li>Applied SEO best practices: keyword placement, internal linking, and formatting</li>
+<li>Delivered high-quality, on-brand content consistently within deadlines</li>
+<li>Supported social content and blog assets with a unified tone and voice</li>
+<li>Managed WordPress uploads, media placement, and on-page SEO elements</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+<div class="reveal">
+<p class="section-label">03 — Skills</p>
+<h2 class="section-title">Tools & expertise</h2>
+</div>
+<div class="skills-grid reveal">
+<div class="skill-group">
+<p class="skill-group-title">Content & Writing</p>
+<div class="skill-tags">
+<span class="skill-tag">SEO Writing</span>
+<span class="skill-tag">Long-Form Content</span>
+<span class="skill-tag">Website Copy</span>
+<span class="skill-tag">Blog Writing</span>
+<span class="skill-tag">Case Studies</span>
+<span class="skill-tag">UX Writing</span>
+<span class="skill-tag">Editing</span>
+</div>
+</div>
+<div class="skill-group">
+<p class="skill-group-title">Digital Marketing</p>
+<div class="skill-tags">
+<span class="skill-tag">Meta Ads</span>
+<span class="skill-tag">Google Ads</span>
+<span class="skill-tag">GA4</span>
+<span class="skill-tag">Google Tag Manager</span>
+<span class="skill-tag">SEMrush</span>
+<span class="skill-tag">Mailchimp</span>
+<span class="skill-tag">Email Marketing</span>
+</div>
+</div>
+<div class="skill-group">
+<p class="skill-group-title">Tools & Platforms</p>
+<div class="skill-tags">
+<span class="skill-tag">WordPress</span>
+<span class="skill-tag">Contentful CMS</span>
+<span class="skill-tag">Canva</span>
+<span class="skill-tag">Figma (Basic)</span>
+<span class="skill-tag">Meta Business Suite</span>
+</div>
+</div>
+<div class="skill-group">
+<p class="skill-group-title">Strategy</p>
+<div class="skill-tags">
+<span class="skill-tag">Keyword Research</span>
+<span class="skill-tag">On-Page SEO</span>
+<span class="skill-tag">Social Media Strategy</span>
+<span class="skill-tag">Campaign Planning</span>
+<span class="skill-tag">Performance Tracking</span>
+<span class="skill-tag">Search Intent Mapping</span>
+<span class="skill-tag">Lead Gen Messaging</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+<div class="reveal">
+<p class="section-label">04 — Published Work</p>
+<h2 class="section-title">Writing you<br/>can read</h2>
+</div>
+<div class="work-grid reveal">
+<a href="https://eumentis.com/blog" target="_blank" class="work-card">
+<div class="work-card-num">01</div>
+<p class="work-card-type">Blog · B2B SaaS</p>
+<h3 class="work-card-title">Eumentis Blog</h3>
+<p class="work-card-desc">SEO-optimised long-form content on AI calling agents, real estate automation, and SaaS lead generation — targeting decision-makers.</p>
+<p class="work-card-arrow">Read → [eumentis.com/blog](http://eumentis.com/blog)</p>
+</a>
+<a href="https://eumentis.com/case-studies" target="_blank" class="work-card">
+<div class="work-card-num">02</div>
+<p class="work-card-type">Case Studies · Real Estate AI</p>
+<h3 class="work-card-title">Eumentis Case Studies</h3>
+<p class="work-card-desc">Research-backed case studies demonstrating ROI from AI-powered calling — structured for conversion, written for credibility.</p>
+<p class="work-card-arrow">Read → [eumentis.com/case-studies](http://eumentis.com/case-studies)</p>
+</a>
+<a href="https://www.linkedin.com/in/gargee-jagtap2001/" target="_blank" class="work-card">
+<div class="work-card-num">03</div>
+<p class="work-card-type">Social Content · LinkedIn</p>
+<h3 class="work-card-title">LinkedIn & Brand Voice</h3>
+<p class="work-card-desc">Short-form content, LinkedIn posts, and platform copy crafted to build brand presence and drive engagement in the B2B space.</p>
+<p class="work-card-arrow">View Profile → LinkedIn</p>
+</a>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="reveal">
+<h2 class="contact-big">Let's create something <em>worth reading.</em></h2>
+</div>
+<div class="contact-links reveal">
+<div class="contact-link-row">
+<span class="contact-link-label">Email</span>
+<a [href="mailto:jagtapgargee12@gmail.com](mailto:href=%22mailto:jagtapgargee12@gmail.com)" class="contact-link-val">[jagtapgargee12@gmail.com](mailto:jagtapgargee12@gmail.com)</a>
+</div>
+<div class="contact-link-row">
+<span class="contact-link-label">Phone</span>
+<a href="tel:+917378305760" class="contact-link-val">+91 73783 05760</a>
+</div>
+<div class="contact-link-row">
+<span class="contact-link-label">LinkedIn</span>
+<a href="https://www.linkedin.com/in/gargee-jagtap2001/" target="_blank" class="contact-link-val">gargee-jagtap2001</a>
+</div>
+<div class="contact-link-row">
+<span class="contact-link-label">Location</span>
+<span class="contact-link-val">Pune 411058, Maharashtra</span>
+</div>
+<div style="margin-top:1rem">
+<a [href="mailto:jagtapgargee12@gmail.com](mailto:href=%22mailto:jagtapgargee12@gmail.com)" class="btn-primary">Send a Message</a>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p class="footer-copy">© 2025 Gargee Jagtap. All rights reserved.</p>
+<p class="footer-badge">Content & Marketing · Pune, India</p>
+</footer>
+
+<script>
+// Custom cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+function animCursor() {
+cursor.style.left = mx - 5 + 'px';
+cursor.style.top  = my - 5 + 'px';
+rx += (mx - rx) * 0.12;
+ry += (my - ry) * 0.12;
+ring.style.left = rx - 18 + 'px';
+ring.style.top  = ry - 18 + 'px';
+requestAnimationFrame(animCursor);
+}
+animCursor();
+
+```
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 100);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => obs.observe(el));
+```
+
+</script>
+</body>
+</html>
