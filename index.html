@@ -11,8 +11,8 @@
 :root {
   --bg: #f6f7f5;
   --text: #111;
-  --muted: #6b6f6b;
-  --line: #e1e5df;
+  --muted: #5f655f;
+  --line: #d9ddd5;
   --accent: #2E6F40;
 }
 
@@ -22,16 +22,18 @@ body {
   font-family: 'Inter', sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 .container {
-  width: min(1100px, 90%);
+  width: min(1000px, 90%);
   margin: auto;
 }
 
+/* SECTIONS */
 .section {
-  padding: 90px 0;
+  padding: 60px 0;
+  border-bottom: 1px solid var(--line);
 }
 
 .section-label {
@@ -39,61 +41,35 @@ body {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .section-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: 1;
-  margin-bottom: 25px;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: 15px;
 }
 
 /* HERO */
 .hero h1 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(3rem, 7vw, 6rem);
-  margin-bottom: 30px;
+  font-size: clamp(3rem, 6vw, 5rem);
+  margin-bottom: 15px;
 }
 
 .hero p {
-  max-width: 600px;
+  max-width: 550px;
   color: var(--muted);
-  font-size: 1.05rem;
 }
 
-/* CARDS */
-.grid {
-  display: grid;
-  gap: 20px;
-}
-
-.grid-3 {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.card {
-  border: 1px solid var(--line);
-  padding: 25px;
-  transition: all 0.25s ease;
-  background: white;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  border-color: var(--accent);
-}
-
-/* TEXT */
-.muted { color: var(--muted); }
-
-/* BUTTONS */
+/* BUTTON */
 .btn {
   display:inline-block;
-  padding:10px 18px;
+  padding:8px 16px;
   border:1px solid var(--line);
   margin-right:10px;
-  margin-top:20px;
+  margin-top:15px;
+  font-size: 0.9rem;
 }
 
 .btn:hover {
@@ -101,16 +77,49 @@ body {
   color: var(--accent);
 }
 
+/* GRID */
+.grid {
+  display: grid;
+  gap: 15px;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* CARDS */
+.card {
+  padding: 18px;
+  border: 1px solid var(--line);
+  background: white;
+  transition: all 0.25s ease;
+}
+
+.card:hover {
+  border-left: 4px solid var(--accent);
+  transform: translateY(-2px);
+}
+
+/* TEXT */
+.muted { color: var(--muted); }
+
+/* EXPERIENCE */
+.exp {
+  padding-left: 15px;
+  border-left: 2px solid var(--accent);
+  margin-bottom: 15px;
+}
+
 /* CONTACT */
 .contact p {
-  margin-bottom:10px;
+  margin-bottom: 6px;
 }
 
 /* ANIMATION */
 .reveal {
   opacity:0;
-  transform: translateY(30px);
-  transition: all 0.7s ease;
+  transform: translateY(25px);
+  transition: all 0.6s ease;
 }
 
 .reveal.visible {
@@ -119,7 +128,7 @@ body {
 }
 
 /* RESPONSIVE */
-@media(max-width:900px){
+@media(max-width:800px){
   .grid-3 {
     grid-template-columns: 1fr;
   }
@@ -136,8 +145,7 @@ body {
   <h1>Gargee Jagtap</h1>
 
   <p>
-    I write clear, structured content across SEO blogs, case studies, website copy, and brand messaging.  
-    My work focuses on search intent, readability, and communication that supports real business outcomes.
+    I write structured, search-driven content across blogs, case studies, and website copy — built for clarity, intent, and business relevance.
   </p>
 
   <a href="resume.pdf" class="btn">Resume</a>
@@ -147,17 +155,16 @@ body {
 <!-- ABOUT -->
 <section class="section reveal">
   <div class="section-label">About</div>
-  <div class="section-title">A writer with an editorial and strategic approach.</div>
+  <div class="section-title">Editorial thinking meets content strategy.</div>
 
   <p class="muted">
-    I’m a SEO-focused content writer with a Master’s in English and hands-on experience in digital marketing across tech and SaaS.  
-    I work across long-form content, website copy, and structured writing formats that build clarity and authority.
+    SEO-focused content writer with a Master's in English and experience across B2B SaaS and digital marketing.
   </p>
 
-  <br><br>
+  <br>
 
   <p class="muted">
-    I’m comfortable working with GA4, WordPress, and Contentful CMS, and I enjoy translating complex ideas into simple, readable, and effective content.
+    I work on blogs, case studies, and structured content systems — focusing on readability, search intent, and clarity.
   </p>
 </section>
 
@@ -176,23 +183,16 @@ body {
 <section class="section reveal">
   <div class="section-label">Experience</div>
 
-  <div class="grid">
-    <div>
-      <strong>Eumentis</strong><br>
-      Content & Marketing Associate  
-      <p class="muted">
-        Worked across SEO blogs, case studies, website copy, and content strategy.  
-        Managed content lifecycle and performance tracking.
-      </p>
-    </div>
+  <div class="exp">
+    <strong>Eumentis</strong><br>
+    Content & Marketing Associate  
+    <p class="muted">SEO blogs, case studies, website copy, GA4 tracking.</p>
+  </div>
 
-    <div>
-      <strong>Continent Hop</strong><br>
-      Freelance Writer  
-      <p class="muted">
-        Wrote SEO-driven travel content for global audiences and handled WordPress publishing workflows.
-      </p>
-    </div>
+  <div class="exp">
+    <strong>Continent Hop</strong><br>
+    Freelance Writer  
+    <p class="muted">SEO blogs, WordPress publishing, global content.</p>
   </div>
 </section>
 
@@ -201,31 +201,31 @@ body {
   <div class="section-label">Skills</div>
 
   <div class="grid grid-3">
-    <div class="card">SEO Writing, Blogs, Case Studies</div>
-    <div class="card">GA4, Google Ads, Meta Ads</div>
-    <div class="card">WordPress, Contentful, Canva</div>
+    <div class="card">SEO Writing · Blogs · Case Studies</div>
+    <div class="card">GA4 · Google Ads · Meta Ads</div>
+    <div class="card">WordPress · Contentful · Canva</div>
   </div>
 </section>
 
 <!-- WRITING SAMPLES -->
 <section class="section reveal">
   <div class="section-label">Writing Samples</div>
-  <div class="section-title">Different formats of my work.</div>
+  <div class="section-title">Range of work.</div>
 
   <div class="grid grid-3">
     <div class="card">
       <strong>Website Copy</strong>
-      <p class="muted">Landing pages, product pages, and conversion-focused website content.</p>
+      <p class="muted">Landing pages and conversion-focused content.</p>
     </div>
 
     <div class="card">
-      <strong>Social & Brand Content</strong>
-      <p class="muted">LinkedIn content, messaging, and brand voice writing.</p>
+      <strong>Social & Brand</strong>
+      <p class="muted">LinkedIn and brand messaging.</p>
     </div>
 
     <div class="card">
-      <strong>Email & Campaign Copy</strong>
-      <p class="muted">Outreach emails, nurture sequences, and campaign messaging.</p>
+      <strong>Email & Campaign</strong>
+      <p class="muted">Outreach and nurture emails.</p>
     </div>
   </div>
 </section>
@@ -237,17 +237,14 @@ body {
   <div class="grid grid-3">
     <a href="https://eumentis.com/blog" target="_blank" class="card">
       <strong>Eumentis Blog</strong>
-      <p class="muted">SEO blogs on AI, real estate, and SaaS.</p>
     </a>
 
     <a href="https://eumentis.com/case-studies" target="_blank" class="card">
       <strong>Case Studies</strong>
-      <p class="muted">Structured business case studies and ROI storytelling.</p>
     </a>
 
     <a href="https://substack.com/@gargeej/note/p-193547200?r=6xsasx&utm_source=notes-share-action&utm_medium=web" target="_blank" class="card">
-      <strong>Substack Writing</strong>
-      <p class="muted">Independent writing and long-form exploration.</p>
+      <strong>Substack</strong>
     </a>
   </div>
 </section>
@@ -266,15 +263,15 @@ body {
 </div>
 
 <script>
-const elements = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
+const els = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
     }
   });
 });
-elements.forEach(el => observer.observe(el));
+els.forEach(el => obs.observe(el));
 </script>
 
 </body>
