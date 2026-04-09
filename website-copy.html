@@ -79,14 +79,26 @@ li::before {
     }
 
     .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 14px;
-      padding: 0 2px;
+  position: sticky;   /* key */
+  top: 0;             /* sticks to top */
+  z-index: 1000;      /* stays above everything */
+
+  background: var(--bg); /* prevents transparency glitch */
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+
+  padding: 12px 6px;  /* slightly more padding for fixed feel */
+}
+    
+    .topbar {
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
     }
 
+    
     .brand {
       font-size: 0.98rem;
       font-weight: 600;
