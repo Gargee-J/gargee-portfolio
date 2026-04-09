@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Strategy & Campaign Thinking — Travel Brand</title>
+  <meta
+    name="description"
+    content="Content strategy and campaign thinking sample for a travel brand, created as a portfolio piece by Gargee Jagtap."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f2efe9;
+      --paper: #fbfaf7;
+      --paper-2: #f6f4ef;
+      --text: #171717;
+      --muted: #666c66;
+      --line: #ddd8cf;
+      --accent: #2E6F40;
+      --accent-dark: #245634;
+      --shadow: 0 18px 45px rgba(20, 20, 20, 0.06);
+      --radius: 18px;
+      --max: 980px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 28px));
+      margin: 26px auto 40px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 14px;
+      padding: 0 2px;
+    }
+
+    .brand {
+      font-size: 0.98rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      font-size: 0.88rem;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav a:hover {
+      color: var(--accent);
+    }
+
+    .frame {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 22px;
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 36px 34px 28px;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(46,111,64,0.08), rgba(46,111,64,0.02)),
+        var(--paper);
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .hero-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.8rem, 6vw, 4.8rem);
+      line-height: 0.9;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      max-width: 12ch;
+      margin-bottom: 16px;
+    }
+
+    .hero-intro {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+    }
+
+    .meta-card {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .meta-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    .meta-label {
+      color: var(--accent);
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .meta-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .content {
+      padding: 0 30px 20px;
+    }
+
+    .section {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    .section-label {
+      color: var(--accent);
+      font-size: 0.74rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      line-height: 0.95;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      max-width: 760px;
+      font-size: 0.97rem;
+    }
+
+    .doc-block {
+      margin-top: 18px;
+      background: var(--paper-2);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .doc-block:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.04);
+    }
+
+    .doc-block h3 {
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .doc-block p {
+      color: var(--muted);
+      margin-bottom: 10px;
+      font-size: 0.96rem;
+    }
+
+    .doc-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .quote-line {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2rem, 4.2vw, 3.2rem);
+      line-height: 0.96;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      max-width: 12ch;
+    }
+
+    .pill-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .pill {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.88rem;
+      color: var(--text);
+      transition: all 0.2s ease;
+    }
+
+    .pill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .mini-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+      transition: all 0.22s ease;
+    }
+
+    .mini-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .mini-card h4 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .mini-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .bullet-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 10px 0 0;
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    .note-box {
+      margin-top: 18px;
+      background: linear-gradient(180deg, rgba(46,111,64,0.07), rgba(46,111,64,0.02));
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .note-box h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      line-height: 0.95;
+      margin-bottom: 10px;
+    }
+
+    .note-box p {
+      color: var(--muted);
+      max-width: 62ch;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: transparent;
+      font-size: 0.9rem;
+      transition: all 0.22s ease;
+    }
+
+    .btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+      color: #fff;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      padding: 14px 2px 0;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .meta-grid,
+      .two-col {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(var(--max), calc(100% - 16px));
+        margin-top: 14px;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: start;
+        gap: 8px;
+      }
+
+      .hero,
+      .content {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .meta-grid,
+      .two-col,
+      .footer {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <a href="index.html" class="brand">Gargee <span>Jagtap</span></a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#writing-samples">Writing Samples</a>
+        <a href="index.html#published-work">Published Work</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+
+    <div class="frame">
+      <section class="hero reveal">
+        <div class="eyebrow">Content Strategy & Campaign Thinking</div>
+        <h1 class="hero-title">Travel, but slower.</h1>
+        <p class="hero-intro">
+          A campaign strategy sample for a travel brand. The objective was to position the brand around slower, more intentional travel — moving away from checklist tourism and toward a more experience-led way of planning trips.
+        </p>
+
+        <div class="meta-grid">
+          <div class="meta-card">
+            <div class="meta-label">Project</div>
+            <p>Content-led engagement campaign for a travel / itinerary platform.</p>
+          </div>
+          <div class="meta-card">
+            <div class="meta-label">Role</div>
+            <p>Content Writer & Strategist</p>
+          </div>
+          <div class="meta-card">
+            <div class="meta-label">Objective</div>
+            <p>Build a campaign concept that shifts the conversation from volume-driven travel to experience-led travel.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="content">
+        <section class="section reveal">
+          <div class="section-label">Campaign Title</div>
+          <div class="doc-block">
+            <div class="quote-line">Travel, but slower.</div>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-label">Objective</div>
+          <h2 class="section-title">Reposition travel around depth, not volume.</h2>
+
+          <div class="doc-block">
+            <p>
+              Position the brand as a platform for more intentional travel — moving away from checklist tourism toward slower, experience-led journeys.
+            </p>
+            <p>Drive:</p>
+            <ul class="bullet-list">
+              <li>engagement through relatable content</li>
+              <li>trust through thoughtful positioning</li>
+              <li>eventual conversions via curated itineraries</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-label">Audience</div>
+          <h2 class="section-title">Travellers who want more meaning, but less chaos.</h2>
+
+          <div class="doc-block">
+            <p>Young professionals (25–40) who:</p>
+            <ul class="bullet-list">
+              <li>travel 2–3 times a year</li>
+              <li>are fatigued by “top 10 things to do” content</li>
+              <li>want meaningful experiences but don’t know how to plan them</li>
+              <li>are active across blogs, Instagram, and travel communities</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-label">Core Insight</div>
+          <div class="doc-block">
+            <div class="quote-line">People don’t actually enjoy rushed travel — they just don’t know an alternative way to plan it.</div>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-label">Core Message</div>
+          <div class="doc-block">
+            <div class="quote-line">You don’t need to see more. You need to experience better.</div>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-label">Campaign Idea</div>
+          <h2 class="section-title">Shift the focus from destinations to how people travel.</h2>
+
+          <div class="doc-block">
+            <p>
+              Instead of selling destinations, the campaign reframes how to travel.
+            </p>
+            <p>
+              The focus moves from the number of places visited to the depth of experience.
+            </p>
+
+            <div class="pill-row">
+              <span class="pill">fewer locations</span>
+              <span class="pill">longer stays</span>
+              <span class="pill">local experiences</span>
+              <span class="pill">less itinerary fatigue</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-label">Content Pillars</div>
+          <h2 class="section-title">Four ways the idea can take shape.</h2>
+
+          <div class="two-col">
+            <div class="mini-card">
+              <h4>1. Reframing Travel</h4>
+              <p>
+                Challenge overpacked itineraries, rushed sightseeing, and the pressure to “complete” a destination.
+              </p>
+            </div>
+
+            <div class="mini-card">
+              <h4>2. Slower Alternatives</h4>
+              <p>
+                Show what fewer locations, longer stays, and neighborhood-level travel can actually look like.
+              </p>
+            </div>
+
+            <div class="mini-card">
+              <h4>3. Practical Planning</h4>
+              <p>
+                Make slow travel actionable through itinerary structure, decision guides, and planning tips.
+              </p>
+            </div>
+
+            <div class="mini-card">
+              <h4>4. Emotional Payoff</h4>
+              <p>
+                Highlight better memories, less fatigue, and more meaningful travel experiences.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-label">Execution Ideas</div>
+          <h2 class="section-title">How the campaign could play out across content.</h2>
+
+          <div class="two-col">
+            <div class="mini-card">
+              <h4>Short-form content</h4>
+              <p>
+                “This is why your trip felt exhausting”  
+                <br><br>
+                “What slowing down your itinerary changes”
+              </p>
+            </div>
+
+            <div class="mini-card">
+              <h4>Blog / SEO content</h4>
+              <p>
+                “How to plan a slow travel itinerary”  
+                <br><br>
+                “1 city, 4 days: a better way to travel”
+              </p>
+            </div>
+
+            <div class="mini-card">
+              <h4>Visual storytelling</h4>
+              <p>
+                Side-by-side comparisons of rushed vs slower itineraries, and day-in-the-life style travel breakdowns.
+              </p>
+            </div>
+
+            <div class="mini-card">
+              <h4>Product integration</h4>
+              <p>
+                Curated slow-travel itineraries and neighborhood-based guides instead of generic city-wide lists.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-label">CTA Direction</div>
+          <div class="doc-block">
+            <div class="pill-row">
+              <span class="pill">Explore a different way to travel</span>
+              <span class="pill">Plan your trip with intention</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-label">Why This Works</div>
+          <div class="note-box">
+            <h3>A campaign built on real travel fatigue.</h3>
+            <p>
+              This idea works because it aligns with a feeling many travellers already have but don’t often see reflected in travel content. It differentiates the brand from generic itinerary-based travel content and positions it as a thinking partner, not just a planning tool.
+            </p>
+
+            <div class="btn-row">
+              <a href="index.html#writing-samples" class="btn btn-primary">Back to Samples</a>
+              <a href="index.html" class="btn">Home</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>Portfolio sample · Content Strategy & Campaign Thinking</div>
+      <div>Gargee Jagtap · Content Writer & Strategist</div>
+    </div>
+  </div>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    reveals.forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
