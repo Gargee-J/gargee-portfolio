@@ -247,14 +247,31 @@
     .message-purpose {
       color: var(--muted);
       font-size: 0.93rem;
+      transition: color 0.25s ease;
     }
-
+    
+    .message-card:hover .message-purpose {
+      color: #4f574f;
+    }
+    
+    .message-card:hover .message-title {
+  color: #1f3f2a;
+  transition: color 0.3s ease;
+}
+    
     .message-index {
       font-family: "Cormorant Garamond", serif;
-      font-size: 2rem;
+      font-size: 2.2rem;
       line-height: 1;
       color: var(--accent);
       white-space: nowrap;
+      opacity: 0.9;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .message-card:hover .message-index {
+      transform: translateX(-4px);
+      opacity: 1;
     }
 
   .message-title {
