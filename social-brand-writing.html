@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Social & Brand Writing — Skincare Brand</title>
+  <meta
+    name="description"
+    content="Social and brand writing sample for a skincare brand, created as a portfolio piece by Gargee Jagtap."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f2efe9;
+      --paper: #fbfaf7;
+      --paper-2: #f6f4ef;
+      --text: #171717;
+      --muted: #666c66;
+      --line: #ddd8cf;
+      --accent: #2E6F40;
+      --accent-dark: #245634;
+      --shadow: 0 18px 45px rgba(20, 20, 20, 0.06);
+      --radius: 18px;
+      --max: 980px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(var(--max), calc(100% - 28px));
+      margin: 26px auto 40px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 14px;
+      padding: 0 2px;
+    }
+
+    .brand {
+      font-size: 0.98rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      font-size: 0.88rem;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav a:hover {
+      color: var(--accent);
+    }
+
+    .frame {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 22px;
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 36px 34px 28px;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(46,111,64,0.08), rgba(46,111,64,0.02)),
+        var(--paper);
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .hero-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.8rem, 6vw, 4.8rem);
+      line-height: 0.9;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      max-width: 12ch;
+      margin-bottom: 16px;
+    }
+
+    .hero-intro {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+    }
+
+    .meta-card {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .meta-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    .meta-label {
+      color: var(--accent);
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .meta-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .content {
+      padding: 0 30px 20px;
+    }
+
+    .section {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    .section-label {
+      color: var(--accent);
+      font-size: 0.74rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      line-height: 0.95;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      max-width: 760px;
+      font-size: 0.97rem;
+    }
+
+    .message-stack {
+      display: grid;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .message-card {
+      background: var(--paper-2);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 22px;
+      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .message-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 26px rgba(0,0,0,0.04);
+    }
+
+    .message-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+      flex-wrap: wrap;
+    }
+
+    .message-type {
+      color: var(--accent);
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .message-purpose {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .message-index {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      line-height: 1;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .message-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      line-height: 0.95;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+      max-width: 18ch;
+    }
+
+    .message-body p {
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-size: 0.98rem;
+    }
+
+    .message-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .bullet-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 10px 0 14px;
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    .close-box {
+      margin-top: 18px;
+      background: linear-gradient(180deg, rgba(46,111,64,0.07), rgba(46,111,64,0.02));
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+    }
+
+    .close-box h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      line-height: 0.95;
+      margin-bottom: 10px;
+    }
+
+    .close-box p {
+      color: var(--muted);
+      max-width: 62ch;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: transparent;
+      font-size: 0.9rem;
+      transition: all 0.22s ease;
+    }
+
+    .btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+      color: #fff;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      padding: 14px 2px 0;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .meta-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(var(--max), calc(100% - 16px));
+        margin-top: 14px;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: start;
+        gap: 8px;
+      }
+
+      .hero,
+      .content {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .meta-grid,
+      .footer {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <a href="index.html" class="brand">Gargee <span>Jagtap</span></a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#writing-samples">Writing Samples</a>
+        <a href="index.html#published-work">Published Work</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+
+    <div class="frame">
+      <section class="hero reveal">
+        <div class="eyebrow">Social & Brand Writing</div>
+        <h1 class="hero-title">Brand Messaging for a Skincare Brand</h1>
+        <p class="hero-intro">
+          A brand messaging set created for a skincare brand. The intent was to make the writing feel premium, clear, and commercially useful — while showing how tone and purpose shift across awareness, product understanding, positioning, and soft conversion.
+        </p>
+
+        <div class="meta-grid">
+          <div class="meta-card">
+            <div class="meta-label">Project</div>
+            <p>Brand messaging set for a skincare brand.</p>
+          </div>
+          <div class="meta-card">
+            <div class="meta-label">Role</div>
+            <p>Content Writer & Strategist</p>
+          </div>
+          <div class="meta-card">
+            <div class="meta-label">Objective</div>
+            <p>Create platform-aware, purpose-led brand writing that feels premium and clear.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="content">
+        <section class="section reveal">
+          <div class="section-label">Message Set</div>
+          <h2 class="section-title">Writing shaped by purpose, not just tone.</h2>
+          <p class="section-copy">
+            Each piece below is positioned differently — from awareness to product understanding to objection handling to a softer brand close.
+          </p>
+
+          <div class="message-stack">
+            <div class="message-card">
+              <div class="message-meta">
+                <div>
+                  <div class="message-type">Awareness / Top of Funnel</div>
+                  <div class="message-purpose">Brand-led LinkedIn or website messaging</div>
+                </div>
+                <div class="message-index">01</div>
+              </div>
+
+              <h3 class="message-title">Clarity over noise</h3>
+
+              <div class="message-body">
+                <p>Most skincare doesn’t fail because the products don’t work.</p>
+                <p>It fails because nothing is followed long enough to matter.</p>
+                <p>One product replaces another. Trends replace routines. Advice changes faster than results can show.</p>
+                <p>The problem isn’t your skin.</p>
+                <p>It’s the lack of consistency around it.</p>
+                <p>Good skincare is not about doing more.</p>
+                <p>It’s about knowing what to stop doing.</p>
+              </div>
+            </div>
+
+            <div class="message-card">
+              <div class="message-meta">
+                <div>
+                  <div class="message-type">Product Understanding</div>
+                  <div class="message-purpose">Website or landing page messaging</div>
+                </div>
+                <div class="message-index">02</div>
+              </div>
+
+              <h3 class="message-title">What we actually build</h3>
+
+              <div class="message-body">
+                <p>We don’t build routines.</p>
+                <p>We build systems your skin can stay with.</p>
+                <p>Every product is designed to do one job — clearly and effectively.</p>
+                <p>No overlap. No unnecessary layering. No confusion about what works together.</p>
+                <p>The goal is simple:</p>
+
+                <ul class="bullet-list">
+                  <li>Fewer products</li>
+                  <li>Better decisions</li>
+                  <li>Consistent results</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="message-card">
+              <div class="message-meta">
+                <div>
+                  <div class="message-type">Positioning / Objection Handling</div>
+                  <div class="message-purpose">LinkedIn or brand storytelling</div>
+                </div>
+                <div class="message-index">03</div>
+              </div>
+
+              <h3 class="message-title">More products ≠ better results</h3>
+
+              <div class="message-body">
+                <p>That idea is easy to sell.</p>
+                <p>It’s also the reason most routines don’t work.</p>
+                <p>Layering without understanding your skin barrier is how progress quietly reverses.</p>
+                <p>Real improvement is slower than expected, and simpler than advertised.</p>
+
+                <ul class="bullet-list">
+                  <li>fewer steps</li>
+                  <li>fewer changes</li>
+                  <li>more consistency</li>
+                </ul>
+
+                <p>That’s what actually holds.</p>
+              </div>
+            </div>
+
+            <div class="message-card">
+              <div class="message-meta">
+                <div>
+                  <div class="message-type">Soft Conversion / Brand Close</div>
+                  <div class="message-purpose">Website close or campaign ending line</div>
+                </div>
+                <div class="message-index">04</div>
+              </div>
+
+              <h3 class="message-title">A softer way to close</h3>
+
+              <div class="message-body">
+                <p>You don’t need more skincare.</p>
+                <p>You need skincare that makes sense for you — and a routine you can actually maintain.</p>
+                <p>Start there.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section reveal">
+          <div class="section-label">Why This Works</div>
+          <div class="close-box">
+            <h3> A clear purpose makes brand writing stronger.</h3>
+            <p>
+              The set moves from attention to understanding, to positioning, to a softer commercial close. It keeps the tone premium and controlled, while still making the product feel relevant and grounded in real user behaviour.
+            </p>
+
+            <div class="btn-row">
+              <a href="index.html#writing-samples" class="btn btn-primary">Back to Samples</a>
+              <a href="index.html" class="btn">Home</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>Portfolio sample · Social & Brand Writing</div>
+      <div>Gargee Jagtap · Content Writer & Strategist</div>
+    </div>
+  </div>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    reveals.forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
