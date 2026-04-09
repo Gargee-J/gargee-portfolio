@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gargee Jagtap — Content Writer & Strategist</title> 
@@ -623,6 +624,205 @@
   }
 
     }
+      /* =========================
+   MOBILE RESPONSIVE FIXES
+   Add at the END of style
+========================= */
+
+@media (max-width: 768px) {
+  .page {
+    width: calc(100% - 14px);
+    margin: 12px auto 24px;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 4px;
+  }
+
+  .brand {
+    font-size: 1.1rem;
+    line-height: 1.1;
+  }
+
+  .nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 18px;
+    width: 100%;
+  }
+
+  .nav a {
+    font-size: 0.95rem;
+    padding: 2px 0;
+  }
+
+  .hero {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-image-wrap {
+    border-left: none !important;
+    border-top: 1px solid var(--line);
+    padding: 16px;
+  }
+
+  .hero-image-frame {
+    min-height: 240px;
+  }
+
+  .hero,
+  .content {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .hero-copy {
+    padding: 24px 16px 20px;
+  }
+
+  .hero-title,
+  .hero-name {
+    font-size: clamp(2.2rem, 10vw, 3.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    white-space: normal !important;
+    max-width: 100% !important;
+    margin-bottom: 18px;
+  }
+
+  .section-title,
+  .message-title,
+  .post-title,
+  .brand-name {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+    line-height: 1.05;
+    white-space: normal !important;
+    max-width: 100% !important;
+  }
+
+  .hero-intro,
+  .hero-sub,
+  .hero-note,
+  .section-copy,
+  .section-intro {
+    max-width: 100%;
+    font-size: 0.96rem;
+  }
+
+  .meta-grid,
+  .two-col,
+  .skills-grid,
+  .contact-grid,
+  .about-grid,
+  .samples-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .published-item,
+  .experience-item {
+    grid-template-columns: 1fr !important;
+  }
+
+  .experience-item {
+    gap: 8px;
+  }
+
+  .sample-card,
+  .meta-card,
+  .mini-card,
+  .doc-block,
+  .message-card,
+  .post-card,
+  .brand-block,
+  .note-box,
+  .panel,
+  .skill-card,
+  .contact-card,
+  .contact-links-card {
+    padding: 16px;
+    min-height: auto !important;
+  }
+
+  .section {
+    padding: 24px 0;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .btn-row,
+  .pill-row,
+  .tag-list {
+    gap: 8px;
+  }
+
+  .btn {
+    min-height: 40px;
+    font-size: 0.86rem;
+    padding: 0 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    width: calc(100% - 10px);
+  }
+
+  .nav {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 14px;
+  }
+
+  .nav a {
+    font-size: 0.82rem;
+  }
+
+  .hero-title,
+  .hero-name {
+    font-size: clamp(1.9rem, 11vw, 2.8rem);
+    line-height: 1.05;
+  }
+
+  .section-title,
+  .message-title,
+  .post-title,
+  .brand-name {
+    font-size: clamp(1.5rem, 8.5vw, 2.1rem);
+    line-height: 1.08;
+  }
+
+  .hero,
+  .content {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .hero-copy {
+    padding: 20px 14px 18px;
+  }
+
+  .hero-image-frame {
+    min-height: 200px;
+  }
+
+  .sample-card,
+  .meta-card,
+  .mini-card,
+  .doc-block,
+  .message-card,
+  .post-card,
+  .brand-block,
+  .note-box,
+  .panel,
+  .skill-card {
+    padding: 14px;
+  }
+}
   </style>
 </head>
 <body>
