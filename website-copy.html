@@ -497,9 +497,22 @@ li::before {
         grid-template-columns: 1fr;
         flex-direction: column;
       }
+
+      /* SCROLL ANIMATION BASE */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
     }
   </style>
 </head>
+  
 <body>
   <div class="page">
     <div class="topbar">
