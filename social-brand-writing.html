@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Content Strategy & Campaign Thinking — Travel Brand</title>
+  <title>Social & Brand Writing — Skincare Brand</title>
   <meta
     name="description"
-    content="Content strategy and campaign thinking sample for a travel brand, created as a portfolio piece by Gargee Jagtap."
+    content="Social and brand writing sample for a skincare brand, created as a portfolio piece by Gargee Jagtap."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -204,104 +204,83 @@
       font-size: 0.97rem;
     }
 
-    .doc-block {
+    .message-stack {
+      display: grid;
+      gap: 18px;
       margin-top: 18px;
+    }
+
+    .message-card {
       background: var(--paper-2);
       border: 1px solid var(--line);
-      border-radius: 18px;
+      border-radius: 20px;
       padding: 22px;
       transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
     }
 
-    .doc-block:hover {
+    .message-card:hover {
       transform: translateY(-2px);
       border-color: var(--accent);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.04);
+      box-shadow: 0 12px 26px rgba(0,0,0,0.04);
     }
 
-    .doc-block h3 {
-      font-size: 1.05rem;
-      margin-bottom: 12px;
+    .message-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+      flex-wrap: wrap;
+    }
+
+    .message-type {
+      color: var(--accent);
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       font-weight: 600;
+      margin-bottom: 6px;
     }
 
-    .doc-block p {
+    .message-purpose {
       color: var(--muted);
-      margin-bottom: 10px;
-      font-size: 0.96rem;
+      font-size: 0.93rem;
     }
 
-    .doc-block p:last-child {
-      margin-bottom: 0;
-    }
-
-    .quote-line {
+    .message-index {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(2rem, 4.2vw, 3.2rem);
-      line-height: 0.96;
+      font-size: 2rem;
+      line-height: 1;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .message-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      line-height: 0.95;
       font-weight: 600;
       letter-spacing: -0.02em;
-      max-width: 14ch;
+      margin-bottom: 14px;
+      max-width: 18ch;
     }
 
-    .pill-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 12px;
-    }
-
-    .pill {
-      border: 1px solid var(--line);
-      background: #fff;
-      border-radius: 999px;
-      padding: 8px 12px;
-      font-size: 0.88rem;
-      color: var(--text);
-      transition: all 0.2s ease;
-    }
-
-    .pill:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-1px);
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-top: 16px;
-    }
-
-    .mini-card {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 18px;
-      transition: all 0.22s ease;
-    }
-
-    .mini-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    .mini-card h4 {
-      font-size: 1rem;
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
-
-    .mini-card p {
+    .message-body p {
       color: var(--muted);
-      font-size: 0.94rem;
+      margin-bottom: 12px;
+      font-size: 0.98rem;
+    }
+
+    .message-body p:last-child {
+      margin-bottom: 0;
     }
 
     .bullet-list {
       list-style: none;
       padding-left: 0;
-      margin: 10px 0 0;
+      margin: 10px 0 14px;
     }
 
     .bullet-list li {
@@ -309,7 +288,7 @@
       padding-left: 16px;
       margin-bottom: 8px;
       color: var(--muted);
-      font-size: 0.96rem;
+      font-size: 0.98rem;
     }
 
     .bullet-list li::before {
@@ -321,7 +300,7 @@
       line-height: 1.2;
     }
 
-    .note-box {
+    .close-box {
       margin-top: 18px;
       background: linear-gradient(180deg, rgba(46,111,64,0.07), rgba(46,111,64,0.02));
       border: 1px solid var(--line);
@@ -329,14 +308,14 @@
       padding: 22px;
     }
 
-    .note-box h3 {
+    .close-box h3 {
       font-family: "Cormorant Garamond", serif;
       font-size: 2rem;
       line-height: 0.95;
       margin-bottom: 10px;
     }
 
-    .note-box p {
+    .close-box p {
       color: var(--muted);
       max-width: 62ch;
     }
@@ -400,8 +379,7 @@
     }
 
     @media (max-width: 900px) {
-      .meta-grid,
-      .two-col {
+      .meta-grid {
         grid-template-columns: 1fr 1fr;
       }
     }
@@ -425,7 +403,6 @@
       }
 
       .meta-grid,
-      .two-col,
       .footer {
         grid-template-columns: 1fr;
         flex-direction: column;
@@ -447,16 +424,16 @@
 
     <div class="frame">
       <section class="hero reveal">
-        <div class="eyebrow">Content Strategy & Campaign Thinking</div>
-        <h1 class="hero-title">Travel, but slower.</h1>
+        <div class="eyebrow">Social & Brand Writing</div>
+        <h1 class="hero-title">Brand Messaging for a Skincare Brand</h1>
         <p class="hero-intro">
-          A campaign strategy sample for a travel brand. The objective was to reposition the brand around slower, more intentional travel — moving away from checklist tourism and toward a more experience-led way of planning trips.
+          A brand messaging set created for a skincare brand. The intent was to make the writing feel premium, clear, and commercially useful — while showing how tone and purpose shift across awareness, product understanding, positioning, and soft conversion.
         </p>
 
         <div class="meta-grid">
           <div class="meta-card">
             <div class="meta-label">Project</div>
-            <p>Content-led engagement campaign for a travel / itinerary platform.</p>
+            <p>Brand messaging set for a skincare brand.</p>
           </div>
           <div class="meta-card">
             <div class="meta-label">Role</div>
@@ -464,274 +441,121 @@
           </div>
           <div class="meta-card">
             <div class="meta-label">Objective</div>
-            <p>Build a campaign concept that shifts the conversation from volume-driven travel to experience-led travel.</p>
+            <p>Create platform-aware, purpose-led brand writing that feels premium and clear.</p>
           </div>
         </div>
       </section>
 
       <div class="content">
         <section class="section reveal">
-          <div class="section-label">Campaign Title</div>
-          <div class="doc-block">
-            <div class="quote-line">Travel, but slower.</div>
-          </div>
-        </section>
+          <div class="section-label">Message Set</div>
+          <h2 class="section-title">Writing shaped by purpose, not just tone.</h2>
+          <p class="section-copy">
+            Each piece below is positioned differently — from awareness to product understanding to objection handling to a softer brand close.
+          </p>
 
-        <section class="section reveal">
-          <div class="section-label">Objective</div>
-          <h2 class="section-title">Reposition travel around depth, not volume.</h2>
+          <div class="message-stack">
+            <div class="message-card">
+              <div class="message-meta">
+                <div>
+                  <div class="message-type">Awareness / Top of Funnel</div>
+                  <div class="message-purpose">Brand-led LinkedIn or website messaging</div>
+                </div>
+                <div class="message-index">01</div>
+              </div>
 
-          <div class="doc-block">
-            <p>
-              Reposition the brand around more intentional travel — shifting away from checklist tourism toward slower, experience-led journeys.
-            </p>
-            <p>Drive:</p>
-            <ul class="bullet-list">
-              <li>engagement through relatable, insight-led content</li>
-              <li>trust through differentiated positioning</li>
-              <li>conversions through curated, slow-travel itineraries</li>
-            </ul>
-          </div>
-        </section>
+              <h3 class="message-title">Clarity over noise</h3>
 
-        <section class="section reveal">
-          <div class="section-label">Audience</div>
-          <h2 class="section-title">Travellers who want more meaning, but less rush.</h2>
-
-          <div class="doc-block">
-            <p>Urban professionals (25–40) living in high-stimulation environments who:</p>
-            <ul class="bullet-list">
-              <li>travel 2–3 times a year</li>
-              <li>feel fatigued by rushed, checklist-style trips</li>
-              <li>want more meaningful experiences but don’t know how to plan them differently</li>
-              <li>consume travel content across Instagram, blogs, and community platforms</li>
-            </ul>
-            <br>
-            <p>They are not looking for more destinations.</p>
-            <p>They are looking for a better way to travel.</p>
-          </div>
-        </section>
-
-        <section class="section reveal">
-          <div class="section-label">Core Insight</div>
-          <div class="doc-block">
-            <div class="quote-line">People don’t actually enjoy rushed travel — they’ve just never been shown a clear alternative.</div>
-          </div>
-        </section>
-
-        <section class="section reveal">
-          <div class="section-label">Core Message</div>
-          <div class="doc-block">
-            <div class="quote-line">You don’t need to see more. You need to experience better.</div>
-          </div>
-        </section>
-
-        <section class="section reveal">
-          <div class="section-label">Campaign Idea</div>
-          <h2 class="section-title">Shift the focus from destinations to how people travel.</h2>
-
-          <div class="doc-block">
-            <p>
-              The campaign shifts the conversation from where to go to how to travel.
-            </p>
-            <p>
-              Instead of promoting more destinations, it reframes travel as:
-            </p>
-
-            <div class="pill-row">
-              <span class="pill">fewer places</span>
-              <span class="pill">longer stays</span>
-              <span class="pill">more local experiences</span>
-              <span class="pill">less itinerary fatigue</span>
+              <div class="message-body">
+                <p>Most skincare doesn’t fail because the products don’t work.</p>
+                <p>It fails because nothing is followed long enough to matter.</p>
+                <p>One product replaces another. Trends replace routines. Advice changes faster than results can show.</p>
+                <p>The problem isn’t your skin.</p>
+                <p>It’s the lack of consistency around it.</p>
+                <p>Good skincare is not about doing more.</p>
+                <p>It’s about knowing what to stop doing.</p>
+              </div>
             </div>
 
-            <br>
-            <p>The campaign doesn’t sell more places.</p>
-            <p>It sells a better pace.</p>
-          </div>
-        </section>
+            <div class="message-card">
+              <div class="message-meta">
+                <div>
+                  <div class="message-type">Product Understanding</div>
+                  <div class="message-purpose">Website or landing page messaging</div>
+                </div>
+                <div class="message-index">02</div>
+              </div>
 
-        <section class="section reveal">
-          <div class="section-label">Campaign Arc</div>
-          <h2 class="section-title">A three-phase journey from attention to action.</h2>
+              <h3 class="message-title">What we actually build</h3>
 
-          <div class="two-col">
-            <div class="mini-card">
-              <h4>Phase 1 — Awareness</h4>
-              <p>
-                Challenge default travel behaviour through contrasts between rushed itineraries and slower, more immersive experiences.
-              </p>
+              <div class="message-body">
+                <p>We don’t build routines.</p>
+                <p>We build systems your skin can stay with.</p>
+                <p>Every product is designed to do one job — clearly and effectively.</p>
+                <p>No overlap. No unnecessary layering. No confusion about what works together.</p>
+                <p>The goal is simple:</p>
+
+                <ul class="bullet-list">
+                  <li>Fewer products</li>
+                  <li>Better decisions</li>
+                  <li>Consistent results</li>
+                </ul>
+              </div>
             </div>
 
-            <div class="mini-card">
-              <h4>Phase 2 — Consideration</h4>
-              <p>
-                Show what slower travel actually looks like through destination-specific itineraries, neighbourhood guides, and planning content.
-              </p>
+            <div class="message-card">
+              <div class="message-meta">
+                <div>
+                  <div class="message-type">Positioning / Objection Handling</div>
+                  <div class="message-purpose">LinkedIn or brand storytelling</div>
+                </div>
+                <div class="message-index">03</div>
+              </div>
+
+              <h3 class="message-title">More products ≠ better results</h3>
+
+              <div class="message-body">
+                <p>That idea is easy to sell.</p>
+                <p>It’s also the reason most routines don’t work.</p>
+                <p>Layering without understanding your skin barrier is how progress quietly reverses.</p>
+                <p>Real improvement is slower than expected, and simpler than advertised.</p>
+
+                <ul class="bullet-list">
+                  <li>fewer steps</li>
+                  <li>fewer changes</li>
+                  <li>more consistency</li>
+                </ul>
+
+                <p>That’s what actually holds.</p>
+              </div>
             </div>
 
-            <div class="mini-card">
-              <h4>Phase 3 — Conversion</h4>
-              <p>
-                Move users toward curated itineraries, trip planners, or guided slow-travel packages through softer, intent-led CTAs.
-              </p>
+            <div class="message-card">
+              <div class="message-meta">
+                <div>
+                  <div class="message-type">Soft Conversion / Brand Close</div>
+                  <div class="message-purpose">Website close or campaign ending line</div>
+                </div>
+                <div class="message-index">04</div>
+              </div>
+
+              <h3 class="message-title">A softer way to close</h3>
+
+              <div class="message-body">
+                <p>You don’t need more skincare.</p>
+                <p>You need skincare that makes sense for you — and a routine you can actually maintain.</p>
+                <p>Start there.</p>
+              </div>
             </div>
-
-            <div class="mini-card">
-              <h4>Goal of the arc</h4>
-              <p>
-                Build emotional connection first, then reduce friction around planning and booking.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section class="section reveal">
-          <div class="section-label">Content Pillars</div>
-          <h2 class="section-title">Four ways the idea can take shape.</h2>
-
-          <div class="two-col">
-            <div class="mini-card">
-              <h4>1. Reframing Travel</h4>
-              <p>
-                Challenge overpacked itineraries, rushed sightseeing, and the pressure to “see everything.”
-              </p>
-            </div>
-
-            <div class="mini-card">
-              <h4>2. Slower Alternatives</h4>
-              <p>
-                Show what fewer locations, longer stays, and neighbourhood-level travel can actually look like.
-              </p>
-            </div>
-
-            <div class="mini-card">
-              <h4>3. Practical Planning</h4>
-              <p>
-                Make slow travel actionable through itinerary structure, decision guides, and planning tips.
-              </p>
-            </div>
-
-            <div class="mini-card">
-              <h4>4. Emotional Payoff</h4>
-              <p>
-                Highlight better memories, less fatigue, and more meaningful travel experiences.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section class="section reveal">
-          <div class="section-label">Channels & Formats</div>
-          <h2 class="section-title">Match the message to how people discover and plan travel.</h2>
-
-          <div class="two-col">
-            <div class="mini-card">
-              <h4>Instagram / Reels</h4>
-              <p>
-                Visual contrasts between rushed and slower travel, local moments, and hooks that interrupt typical travel content.
-              </p>
-            </div>
-
-            <div class="mini-card">
-              <h4>Blog / SEO Content</h4>
-              <p>
-                Slow-travel itineraries, destination deep-dives, and planning content built around search intent.
-              </p>
-            </div>
-
-            <div class="mini-card">
-              <h4>Email / Community</h4>
-              <p>
-                Reflections from travellers, curated recommendations, and “trip style” content that keeps the brand useful between bookings.
-              </p>
-            </div>
-
-            <div class="mini-card">
-              <h4>Purpose</h4>
-              <p>
-                Use each channel differently: attention on social, trust on long-form, and retention through community-driven touchpoints.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section class="section reveal">
-          <div class="section-label">Execution Ideas</div>
-          <h2 class="section-title">How the campaign could show up in actual content.</h2>
-
-          <div class="two-col">
-            <div class="mini-card">
-              <h4>Short-form content</h4>
-              <p>
-                “This is why your trip felt exhausting”  
-                <br><br>
-                “What slowing down your itinerary changes”
-              </p>
-            </div>
-
-            <div class="mini-card">
-              <h4>Blog / SEO content</h4>
-              <p>
-                “How to plan a slow travel itinerary”  
-                <br><br>
-                “1 city, 4 days: a better way to travel”
-              </p>
-            </div>
-
-            <div class="mini-card">
-              <h4>Visual storytelling</h4>
-              <p>
-                Side-by-side comparisons of rushed vs slower itineraries, and day-in-the-life style travel breakdowns.
-              </p>
-            </div>
-
-            <div class="mini-card">
-              <h4>Product integration</h4>
-              <p>
-                Curated slow-travel itineraries and neighbourhood-based guides instead of generic city-wide lists.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section class="section reveal">
-          <div class="section-label">CTA Direction</div>
-          <div class="doc-block">
-            <div class="pill-row">
-              <span class="pill">Explore a different way to travel</span>
-              <span class="pill">Plan your trip with intention</span>
-            </div>
-          </div>
-        </section>
-
-        <section class="section reveal">
-          <div class="section-label">Measurement</div>
-          <h2 class="section-title">Track depth of interest, not just surface engagement.</h2>
-
-          <div class="doc-block">
-            <ul class="bullet-list">
-              <li>saves and shares on awareness content</li>
-              <li>time spent on blog and itinerary pages</li>
-              <li>click-through rates to curated itineraries</li>
-              <li>conversions or lead capture from planning tools</li>
-            </ul>
-            <br>
-            <p>Iterate based on:</p>
-            <ul class="bullet-list">
-              <li>content that drives high saves as an intent signal</li>
-              <li>drop-off patterns in long-form or multi-slide content</li>
-              <li>repeat engagement with specific themes or destinations</li>
-            </ul>
           </div>
         </section>
 
         <section class="section reveal">
           <div class="section-label">Why This Works</div>
-          <div class="note-box">
-            <h3>A campaign built on real travel fatigue.</h3>
+          <div class="close-box">
+            <h3>Clear purpose makes brand writing stronger.</h3>
             <p>
-              This campaign aligns with a real shift in how people want to travel — but don’t yet see clearly reflected in most travel content. It offers a genuine alternative, builds emotional connection before conversion, and positions the brand as a thinking partner rather than just a booking platform.
+              The set moves from attention, to understanding, to positioning, to a softer commercial close. It keeps the tone premium and controlled, while still making the product feel relevant and grounded in real user behaviour.
             </p>
 
             <div class="btn-row">
@@ -744,7 +568,7 @@
     </div>
 
     <div class="footer">
-      <div>Portfolio sample · Content Strategy & Campaign Thinking</div>
+      <div>Portfolio sample · Social & Brand Writing</div>
       <div>Gargee Jagtap · Content Writer & Strategist</div>
     </div>
   </div>
