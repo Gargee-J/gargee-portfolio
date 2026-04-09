@@ -65,13 +65,21 @@
     }
 
     .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 18px;
-      margin-bottom: 16px;
-      padding: 0 2px;
-    }
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid #d1d5db;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.3rem 6vw;
+}
+
 
     .brand {
       font-size: 0.98rem;
