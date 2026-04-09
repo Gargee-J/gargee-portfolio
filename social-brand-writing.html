@@ -257,14 +257,15 @@
       white-space: nowrap;
     }
 
-    .message-title {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 2rem;
-      line-height: 0.95;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      margin-bottom: 14px;
-      max-width: 18ch;
+  .message-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.7rem, 3vw, 2rem);
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    max-width: none;
+    white-space: nowrap;
     }
 
     .message-body p {
