@@ -611,6 +611,16 @@
       .footer {
         flex-direction: column;
       }
+      .reveal-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
     }
   </style>
 </head>
@@ -704,7 +714,7 @@
 
          <div class="samples-grid">
 
-  <a href="website-copy.html" class="sample-card small">
+  <a href="website-copy.html" class="sample-card small reveal-card">
     <div>
       <h3>Website Copy</h3>
       <p>
@@ -714,7 +724,7 @@
   </a>
 
 
-      <a href="email-campaign.html" class="sample-card small">
+      <a href="email-campaign.html" class="sample-card small reveal-card">
   <div>
     <h3>Email & Campaign Copy</h3>
     <p>
@@ -723,7 +733,7 @@
   </div>
 </a>
 
-   <a href="social-brand-writing.html" class="sample-card small">
+   <a href="social-brand-writing.html" class="sample-card small reveal-card">
   <div>
     <h3>Social & Brand Writing</h3>
     <p>
@@ -732,7 +742,7 @@
   </div>
 </a>
 
-    <a href="content-strategy.html" class="sample-card small">
+    <a href="content-strategy.html" class="sample-card small reveal-card">
       <div>
         <h3>Content Strategy & Campaign Thinking</h3>
         <p>
@@ -741,7 +751,7 @@
       </div>
     </a>
           
-           <a href="taglines-microcopy.html" class="sample-card small">
+           <a href="taglines-microcopy.html" class="sample-card small reveal-card">
   <div>
     <h3>Taglines & Microcopy</h3>
     <p>
@@ -750,7 +760,7 @@
   </div>
 </a>
            
-           <a href="social-execution.html" class="sample-card small">
+           <a href="social-execution.html" class="sample-card small reveal-card">
   <div>
     <h3>Social Media Execution</h3>
     <p>
@@ -885,18 +895,26 @@
     </div>
   </div>
 
-  <script>
-    const reveals = document.querySelectorAll('.reveal');
+<script>
+  const revealCards = document.querySelectorAll('.reveal-card');
+  const samplesGrid = document.querySelector('.samples-grid');
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.12 });
+  const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        revealCards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add('visible');
+          }, index * 180);
+        });
+        cardObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.15 });
 
-    reveals.forEach((el) => observer.observe(el));
-  </script>
+  if (samplesGrid) {
+    cardObserver.observe(samplesGrid);
+  }
+</script>
 </body>
 </html>
